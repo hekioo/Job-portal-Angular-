@@ -1,0 +1,59 @@
+<h1 class="text-center mb-5">Login</h1>
+
+<div class="container ">
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <form [formGroup]="loginForm" (ngSubmit)="loginCheck()">
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <input type="email" 
+                        class="form-control" 
+                        id="userEmail" 
+                        name="userEmail" 
+                        formControlName="userEmail"
+                        aria-describedby="emailHelp">
+
+                      <span *ngIf="loginForm.controls['userEmail'].touched && !loginForm.controls['userEmail'].valid">
+
+                          <span *ngIf="loginForm.controls['userEmail'].hasError('required')">
+                              Eamil Can't be Empty!
+                          </span> 
+
+                          <span *ngIf="loginForm.controls['userEmail'].hasError('email')">
+                              Email is not in correct format
+                          </span> 
+
+
+                      </span>      
+                </div>
+                <div class="mb-3">
+                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                  <input type="password" 
+                        class="form-control" 
+                        id="userPassword" 
+                        formControlName="userPassword"
+                        name="userPassword" >
+
+                  <span *ngIf="loginForm.controls['userPassword'].touched && !loginForm.controls['userPassword'].valid">
+
+                          <span *ngIf="loginForm.controls['userPassword'].hasError('required')">
+                              Password Can't be Empty!
+                          </span> 
+
+                          <span *ngIf="loginForm.controls['userPassword'].hasError('minlength')">
+                              password Can't be Less than 6 Characters!
+                          </span> 
+
+
+                  </span>      
+                </div>
+                <div class="mb-3 form-check">
+                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-secondary ">Reset</button>
+              </form>
+        </div>
+    </div>
+</div>

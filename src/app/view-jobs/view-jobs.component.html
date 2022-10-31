@@ -1,0 +1,72 @@
+<h1 class="text-center">View All Jobs</h1>
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Comapany Name</th>
+            <th scope="col">Job Title</th>
+            <th scope="col">Job Category</th>
+            <th scope="col">Job Description</th>
+            <th scope="col">Job Location</th>
+            <th scope="col">Job Salary</th>
+            <th scope="col" >Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of jobList">
+                <td> {{data.jobId}}</td>
+                <td> {{data.companyName}}</td>
+                <td>{{data.jobTitle}}</td>
+                <td>{{data.jobCategory}}</td>
+                <td>{{data.jobDescription}}</td>
+                
+                <td>{{data.jobLocation}} </td>
+                <td>{{data.jobSalary}}</td>
+                <td><a routerLink="/update-job/{{data.jobId}}"><button type="button" class="btn btn-outline-warning mx-1" value="Update">Update</button></a> <a><button type="button" class="btn btn-outline-danger" value="Delete" (click)="deleteJob(data.jobId)">Delete</button></a></td>
+    
+              </tr>
+         
+        </tbody>
+      </table>
+</div>
+
+
+
+
+
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col-md-12">
+
+      <div class="container-fluid" *ngFor="let data of jobList">
+        <div class="row" style="display: flex; align-items: center; justify-content: center;">
+          <div class="col-md-6 mt-5 mb-3" >
+            <div class="card text-center" style="border: 2px solid gray;">
+              <div class="card-header text-light bg-dark " style="font-size: 20px; font-weigth: bold;">{{data.jobTitle}}</div>
+              <div class="card-body">
+                <p class="card-text text-center " style="font-style: italic; word-wrap: break-word;">{{data.jobDescription}}</p>
+                <a routerLink="/update-job/{{data.jobId}}"
+            class="btn btn-sm btn-outline-dark ">Edit</a> 
+            <button
+            (click)="deleteJob(data.jobId)"
+            class="btn btn-sm btn-outline-danger ">Delete</button>
+              </div>
+            
+              <div class="card-footer text-muted "></div>
+              <div class="card-footer text-muted ">Category: {{data.jobCategory}}</div>
+              
+              
+            </div>
+          </div>
+          
+          
+        </div>
+      </div>
+
+     
+    </div>
+  </div>
+</div> -->

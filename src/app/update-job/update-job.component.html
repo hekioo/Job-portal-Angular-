@@ -1,0 +1,108 @@
+
+<h1 class="text-center my-4">Update JOb Details</h1>
+
+<div class="container my-5">
+    <div class="bootstrap-wrapper">
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <form [formGroup]="updateJobForm" (ngSubmit)="updateJob()">
+
+                    <div class="form-group">
+                        <label for="companyName" class="form-label">Company Name</label>
+                        <input type="text" class="form-control" formControlName="companyName" id="companyName"
+                            name="companyName">
+                        <span *ngIf="updateJobForm.controls['companyName'].touched && !updateJobForm.controls['companyName'].valid">
+
+                            <span *ngIf="updateJobForm.controls['jobTitle'].hasError('required')">
+                                Company Name Can't be Empty!
+                            </span>
+
+
+
+                        </span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="jobTitle" class="form-label">Job Title</label>
+                        <input type="text" class="form-control" formControlName="jobTitle" id="jobTitle"
+                            name="jobTitle">
+                        <span *ngIf="updateJobForm.controls['jobTitle'].touched && !updateJobForm.controls['jobTitle'].valid">
+
+                            <span *ngIf="updateJobForm.controls['jobTitle'].hasError('required')">
+                                JOb Title Can't be Empty!
+                            </span>
+
+                            <span *ngIf="updateJobForm.controls['jobTitle'].hasError('minlength')">
+                                JOb Title Can't be Less than 10 Characters!
+                            </span>
+
+
+                        </span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="jobCategory" class="form-label">Job Category</label>
+                        <input type="text" class="form-control" formControlName="jobCategory" id="jobCategory"
+                            name="jobCategory">
+                        <span *ngIf="updateJobForm.controls['jobCategory'].touched && !updateJobForm.controls['jobCategory'].valid">
+
+                            <span *ngIf="updateJobForm.controls['jobCategory'].hasError('required')">
+                                Job Category Can't be Empty!
+                            </span>
+
+                        </span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="jobDescription" class="form-label">Job Description</label>
+                        <input type="text" class="form-control" formControlName="jobDescription" id="jobDescription"
+                            name="jobDescription">
+                        <span *ngIf="updateJobForm.controls['jobDescription'].touched && !updateJobForm.controls['jobDescription'].valid">
+
+                            <span *ngIf="updateJobForm.controls['jobDescription'].hasError('required')">
+                                Job Description Can't be Empty!
+                            </span>
+
+                        </span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="jobLocation" class="form-label">Job Location</label>
+                        <input type="text" class="form-control" formControlName="jobLocation" id="jobLocation"
+                            name="jobLocation">
+                        <span *ngIf="updateJobForm.controls['jobLocation'].touched && !updateJobForm.controls['jobLocation'].valid">
+
+                            <span *ngIf="updateJobForm.controls['jobLocation'].hasError('required')">
+                                Job Location Can't be Empty!
+                            </span>
+
+                        </span>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="jobSalary" class="form-label">Job Salary</label>
+                        <input type="text" class="form-control" formControlName="jobSalary" id="jobSalary"
+                            name="jobSalary">
+                        <span *ngIf="updateJobForm.controls['jobSalary'].touched && !updateJobForm.controls['jobSalary'].valid">
+
+                            <span *ngIf="updateJobForm.controls['jobSalary'].hasError('required')">
+                                Job Salary Can't be Empty!
+                            </span>
+
+                        </span>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-outline-success">Update Job</button>
+                        <button type="reset" class="btn btn-outline-warning">Reset Job</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
