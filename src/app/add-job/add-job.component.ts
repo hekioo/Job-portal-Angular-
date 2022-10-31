@@ -25,7 +25,7 @@ export class AddJobComponent implements OnInit {
                   jobCategory: ['', Validators.compose([Validators.required])],
                   jobDescription: ['', Validators.compose([Validators.required,])],
                   jobLocation: ['', Validators.compose([Validators.required])],
-                  jobSalary: ['', Validators.compose([Validators.required, Validators.min(250000)])]
+                  jobSalary: ['', Validators.compose([Validators.required, Validators.pattern(/^[1-9]+$/)])]
             
             
                 });

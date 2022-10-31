@@ -64,12 +64,12 @@
                                 Mobile Can't be Empty!
                             </span> 
 
-                            <span *ngIf="updateUserForm.controls['userMobile'].hasError('minlength')">
+                            <!-- <span *ngIf="updateUserForm.controls['userMobile'].hasError('minlength')">
                                 Mobile Can't be Less than 10 Characters!
-                            </span> 
+                            </span>  -->
 
-                            <span *ngIf="updateUserForm.controls['userMobile'].hasError('maxlength')">
-                                Mobile Can't be More than 10 Characters!
+                            <span *ngIf="updateUserForm.controls['userMobile'].hasError('pattern')">
+                                Mobile No. not in correct format!
                             </span> 
 
 

@@ -53,9 +53,9 @@ export class UpdateJobComponent implements OnInit {
         jobCategory: [response.jobCategory, Validators.compose([Validators.required])],
         jobDescription: [response.jobDescription, Validators.compose([Validators.required,])],
         jobLocation: [response.jobLocation, Validators.compose([Validators.required])],
-        jobSalary: [response.jobSalary, Validators.compose([Validators.required, Validators.min(250000)])]
+        jobSalary: [response.jobSalary, Validators.compose([Validators.required, Validators.pattern(/^[1-9]+$/)])]
   
-  
+
       });
     },
     error => {

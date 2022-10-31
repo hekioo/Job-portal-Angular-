@@ -50,7 +50,7 @@ export class UpdateUserComponent implements OnInit {
         userName: [response.userName, Validators.compose([Validators.required, Validators.minLength(4)])],  //Validators.compose is used to to combine all the validations at once
         userEmail: [response.userEmail, Validators.compose([Validators.required, Validators.email])],
         userPassword: [response.userPassword, Validators.compose([Validators.required, Validators.minLength(6)])],
-        userMobile: [response.userMobile, Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)])],
+        userMobile: [response.userMobile, Validators.compose([Validators.required, Validators.pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)])],
         userQualification: [response.userQualification, Validators.compose([Validators.required])],
         userSkills: [response.userSkills, Validators.compose([Validators.required])]
       });

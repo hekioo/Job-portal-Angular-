@@ -1,4 +1,3 @@
-
 <h1 class="text-center my-4">Update JOb Details</h1>
 
 <div class="container my-5">
@@ -11,7 +10,8 @@
                         <label for="companyName" class="form-label">Company Name</label>
                         <input type="text" class="form-control" formControlName="companyName" id="companyName"
                             name="companyName">
-                        <span *ngIf="updateJobForm.controls['companyName'].touched && !updateJobForm.controls['companyName'].valid">
+                        <span
+                            *ngIf="updateJobForm.controls['companyName'].touched && !updateJobForm.controls['companyName'].valid">
 
                             <span *ngIf="updateJobForm.controls['jobTitle'].hasError('required')">
                                 Company Name Can't be Empty!
@@ -27,7 +27,8 @@
                         <label for="jobTitle" class="form-label">Job Title</label>
                         <input type="text" class="form-control" formControlName="jobTitle" id="jobTitle"
                             name="jobTitle">
-                        <span *ngIf="updateJobForm.controls['jobTitle'].touched && !updateJobForm.controls['jobTitle'].valid">
+                        <span
+                            *ngIf="updateJobForm.controls['jobTitle'].touched && !updateJobForm.controls['jobTitle'].valid">
 
                             <span *ngIf="updateJobForm.controls['jobTitle'].hasError('required')">
                                 JOb Title Can't be Empty!
@@ -44,9 +45,22 @@
 
                     <div class="form-group">
                         <label for="jobCategory" class="form-label">Job Category</label>
-                        <input type="text" class="form-control" formControlName="jobCategory" id="jobCategory"
-                            name="jobCategory">
-                        <span *ngIf="updateJobForm.controls['jobCategory'].touched && !updateJobForm.controls['jobCategory'].valid">
+
+
+                        <select id="jobCategory" name="category" type="text" class="form-control custom-select"
+                            formControlName="jobCategory" name="jobCategory" >
+                            <option value="IT">IT</option>
+                            <option value="Developer">Developer</option>
+                            <option value="Support">Support</option>
+                            <option value="BPO">BPO</option>
+                            <option value="Marketing">Marketing</option>
+                            <option value="Teacher">Teacher</option>
+                            <option value="Banking">Banking</option>
+
+
+                        </select>
+                        <span
+                            *ngIf="updateJobForm.controls['jobCategory'].touched && !updateJobForm.controls['jobCategory'].valid">
 
                             <span *ngIf="updateJobForm.controls['jobCategory'].hasError('required')">
                                 Job Category Can't be Empty!
@@ -60,7 +74,8 @@
                         <label for="jobDescription" class="form-label">Job Description</label>
                         <input type="text" class="form-control" formControlName="jobDescription" id="jobDescription"
                             name="jobDescription">
-                        <span *ngIf="updateJobForm.controls['jobDescription'].touched && !updateJobForm.controls['jobDescription'].valid">
+                        <span
+                            *ngIf="updateJobForm.controls['jobDescription'].touched && !updateJobForm.controls['jobDescription'].valid">
 
                             <span *ngIf="updateJobForm.controls['jobDescription'].hasError('required')">
                                 Job Description Can't be Empty!
@@ -72,9 +87,19 @@
 
                     <div class="form-group">
                         <label for="jobLocation" class="form-label">Job Location</label>
-                        <input type="text" class="form-control" formControlName="jobLocation" id="jobLocation"
-                            name="jobLocation">
-                        <span *ngIf="updateJobForm.controls['jobLocation'].touched && !updateJobForm.controls['jobLocation'].valid">
+
+                        <select name="location" type="text" class="form-control custom-select"
+                            formControlName="jobLocation" id="jobLocation" name="jobLocation">
+                            <option value="Delhi">Delhi</option>
+                            <option value="Pune">Pune</option>
+                            <option value="Banglore">Banglore</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                            <option value="NOida">Noida</option>
+
+                        </select>
+                        <span
+                            *ngIf="updateJobForm.controls['jobLocation'].touched && !updateJobForm.controls['jobLocation'].valid">
 
                             <span *ngIf="updateJobForm.controls['jobLocation'].hasError('required')">
                                 Job Location Can't be Empty!
@@ -88,10 +113,15 @@
                         <label for="jobSalary" class="form-label">Job Salary</label>
                         <input type="text" class="form-control" formControlName="jobSalary" id="jobSalary"
                             name="jobSalary">
-                        <span *ngIf="updateJobForm.controls['jobSalary'].touched && !updateJobForm.controls['jobSalary'].valid">
+                        <span
+                            *ngIf="updateJobForm.controls['jobSalary'].touched && !updateJobForm.controls['jobSalary'].valid">
 
                             <span *ngIf="updateJobForm.controls['jobSalary'].hasError('required')">
                                 Job Salary Can't be Empty!
+                            </span>
+
+                            <span *ngIf="updateJobForm.controls['jobSalary'].hasError('pattern')">
+                                Invalid Input!
                             </span>
 
                         </span>

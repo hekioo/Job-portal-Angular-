@@ -7,15 +7,15 @@
                 <form [formGroup]="userReg" (ngSubmit) = "register()">
                     <div class="form-group">
                         <label for="userName" class="form-label">User Name</label>
-                        <input type="text" class="form-control" formControlName="userName" id="userName" name="userName">
+                        <input type="text" placeholder="John123" class="form-control" formControlName="userName" id="userName" name="userName">
                         <span *ngIf="userReg.controls['userName'].touched && !userReg.controls['userName'].valid">
 
                             <span *ngIf="userReg.controls['userName'].hasError('required')">
-                                user Name Can't be Empty!
+                                User Name Can't be Empty!
                             </span> 
 
                             <span *ngIf="userReg.controls['userName'].hasError('minlength')">
-                                user Name Can't be Less than 4 Characters!
+                                User Name Can't be Less than 4 Characters!
                             </span> 
 
 
@@ -23,11 +23,11 @@
                     </div>
                     <div class="form-group">
                         <label for="userEmail" class="form-label">Email address</label>
-                        <input type="email" class="form-control" formControlName="userEmail" id="userEmail" name="userEmail" aria-describedby="emailHelp">
+                        <input type="email" placeholder="abc@example.com" class="form-control" formControlName="userEmail" id="userEmail" name="userEmail" aria-describedby="emailHelp">
                         <span *ngIf="userReg.controls['userEmail'].touched && !userReg.controls['userEmail'].valid">
 
                             <span *ngIf="userReg.controls['userEmail'].hasError('required')">
-                                Eamil Can't be Empty!
+                                Email Can't be Empty!
                             </span> 
 
                             <span *ngIf="userReg.controls['userEmail'].hasError('email')">
@@ -40,7 +40,7 @@
                     
                     <div class="form-group">
                         <label for="userPassword" class="form-label">Password</label>
-                        <input type="password" class="form-control" formControlName="userPassword" id="userPassword" name="userPassword">
+                        <input type="password" placeholder="Password length must be min 6" class="form-control" formControlName="userPassword" id="userPassword" name="userPassword">
                         <span *ngIf="userReg.controls['userPassword'].touched && !userReg.controls['userPassword'].valid">
 
                             <span *ngIf="userReg.controls['userPassword'].hasError('required')">
@@ -57,19 +57,24 @@
 
                     <div class="form-group">
                         <label for="userMobile" class="form-label">Mobile</label>
-                        <input type="number" class="form-control" formControlName="userMobile" id="userMobile" name="userMobile">
+                        
+                        <input type="text" class="form-control" placeholder="Enter your 10 digit Mobile Number" formControlName="userMobile" id="userMobile" name="userMobile" aria-label="Username" aria-describedby="basic-addon1">
                         <span *ngIf="userReg.controls['userMobile'].touched && !userReg.controls['userMobile'].valid">
 
                             <span *ngIf="userReg.controls['userMobile'].hasError('required')">
                                 Mobile Can't be Empty!
                             </span> 
 
-                            <span *ngIf="userReg.controls['userMobile'].hasError('minlength')">
-                                Mobile Can't be Less than 10 Characters!
+                            <!-- <span *ngIf="userReg.controls['userMobile'].hasError('min')">
+                                Mobile Can't be Less than 10 Digits!
                             </span> 
 
-                            <span *ngIf="userReg.controls['userMobile'].hasError('maxlength')">
-                                Mobile Can't be More than 10 Characters!
+                            <span *ngIf="userReg.controls['userMobile'].hasError('max')">
+                                Mobile Can't be More than 10 Digits!
+                            </span>  -->
+
+                            <span *ngIf="userReg.controls['userMobile'].hasError('pattern')">
+                                Mobile No. not in correct format!
                             </span> 
 
 
@@ -78,7 +83,7 @@
 
                     <div class="form-group">
                         <label for="-" class="form-label">Qualification</label>
-                        <input type="text" class="form-control" formControlName="userQualification" id="userQualification" name="userQualification">
+                        <input type="text" placeholder="B.Tech" class="form-control" formControlName="userQualification" id="userQualification" name="userQualification">
                         <span *ngIf="userReg.controls['userQualification'].touched && !userReg.controls['userQualification'].valid">
 
                             <span *ngIf="userReg.controls['userQualification'].hasError('required')">
@@ -93,7 +98,7 @@
 
                     <div class="form-group">
                         <label for="userSkills" class="form-label">Skill set</label>
-                        <input type="text" class="form-control" formControlName="userSkills" id="userSkills" name="userSkills">
+                        <input type="text" placeholder="Marketing, Communication" class="form-control" formControlName="userSkills" id="userSkills" name="userSkills">
                         <span *ngIf="userReg.controls['userSkills'].touched && !userReg.controls['userSkills'].valid">
 
                             <span *ngIf="userReg.controls['userSkills'].hasError('required')">
@@ -107,9 +112,9 @@
                     </div>
 
 
-                    <div class="form-group">
+                    <div class="form-group my-4">
                     <button type="submit" class="btn btn-outline-success">Add user</button>
-                    <button type="reset" class="btn btn-outline-warning">Reset user</button>
+                    <button type="reset" class="btn btn-outline-warning mx-2">Reset user</button>
                 </div>
                 </form>
             </div>
