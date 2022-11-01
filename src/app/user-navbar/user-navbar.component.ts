@@ -14,6 +14,7 @@ export class UserNavbarComponent implements OnInit {
   {
     // we are getting user id from session storage which we stored in user-dashboard component
     this.uid = sessionStorage.getItem('userId');
+    alert("user id: " +this.uid.userName);
   }
 
 }
