@@ -20,6 +20,8 @@ import { AddJobComponent } from './add-job/add-job.component';
 import { UpdateJobComponent } from './update-job/update-job.component';
 import { ViewJobByLocComponent } from './view-job-by-loc/view-job-by-loc.component';
 import { ViewJobByCatComponent } from './view-job-by-cat/view-job-by-cat.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { ViewJobByCatComponent } from './view-job-by-cat/view-job-by-cat.compone
     AddJobComponent,
     UpdateJobComponent,
     ViewJobByLocComponent,
-    ViewJobByCatComponent
+    ViewJobByCatComponent,
+    PagenotfoundComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

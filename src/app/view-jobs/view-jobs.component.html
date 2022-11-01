@@ -24,7 +24,7 @@
                 
                 <td>{{data.jobLocation}} </td>
                 <td>{{data.jobSalary}}</td>
-                <td><a routerLink="/update-job/{{data.jobId}}"><button type="button" class="btn btn-outline-warning mx-1" value="Update">Update</button></a> <a><button type="button" class="btn btn-outline-danger" value="Delete" (click)="deleteJob(data.jobId)">Delete</button></a></td>
+                <td><a routerLink="/admin/update-job/{{data.jobId}}"><button type="button" class="btn btn-outline-warning mx-1" value="Update">Update</button></a> <a><button type="button" class="btn btn-outline-danger" value="Delete" (click)="deleteJob(data.jobId)">Delete</button></a></td>
     
               </tr>
          

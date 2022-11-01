@@ -46,25 +46,25 @@ export class AddUserComponent implements OnInit {
     {
 
       Swal.fire({
-        title: 'Do you want to save the Record?',
+        title: 'Do you want to Register?',
         showDenyButton: true,
         showCancelButton: true,
-        confirmButtonText: 'Save',
-        denyButtonText: `Don't save`,
+        confirmButtonText: 'Register',
+        denyButtonText: `Don't Register`,
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
 
           this._userServive.addUser(this.userReg.value).subscribe(response => {
-            Swal.fire('Record Saved!', '', 'success')
-            this._router.navigate(['user-list']);  // to navigate automatically to view-user list
+            Swal.fire('Registered Successfully!', '', 'success')
+            this._router.navigate(['/login']);  // to navigate automatically to login
           },
             error => {
               console.log(error);
             })
 
         } else if (result.isDenied) {
-          Swal.fire('Changes are not saved', '', 'info')
+          Swal.fire('Registration Not Done!', '', 'info')
         }
       })
 

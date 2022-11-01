@@ -1,3 +1,4 @@
+import { LocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _locationSt:LocationStrategy) { }
 
   ngOnInit(): void {
+
+    // this is to prevent going back using back Button
+
+    history.pushState(null, '', location.href);
+    this._locationSt.onPopState(() => {
+      history.pushState(null, '', location.href);
+    });
   }
 
 }

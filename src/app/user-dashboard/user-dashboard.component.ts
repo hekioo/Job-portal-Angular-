@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-user-dashboard',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserDashboardComponent implements OnInit {
 
-  constructor() { }
+  uid:number;
+  constructor(private _activatedRoute:ActivatedRoute) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    // for getting user id into this component or any other component
+
+    this.uid = this._activatedRoute.snapshot.params['userId'];
+    sessionStorage.setItem('userId',this.uid.toString());
+    alert(this.uid);
   }
 
 }

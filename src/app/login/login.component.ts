@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
+    sessionStorage.removeItem('email');
     this.loginForm = this._formBuilder.group({
 
       userEmail: ['',Validators.compose([Validators.required, Validators.email])],
@@ -41,7 +42,9 @@ export class LoginComponent implements OnInit {
       if((email=="admin@gmail.com") && (password=="adminn"))
       {
         alert("admin");
-        this._route.navigate(['admin-dashboard']);
+        sessionStorage.setItem('email', "admin");
+
+        this._route.navigate(['admin']);
       }
 
       else
@@ -51,7 +54,9 @@ export class LoginComponent implements OnInit {
             if(response!=null)
             {
               alert("user login");
-                this._route.navigate(['user-dashboard']);
+              sessionStorage.setItem('email', response.userEmail.toString());
+
+                this._route.navigate(['user', response.userId]);
             }
             else{
                 alert("Login Failed!");

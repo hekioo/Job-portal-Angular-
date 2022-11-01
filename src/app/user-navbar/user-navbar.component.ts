@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserNavbarComponent implements OnInit {
 
+  uid:any;
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void 
+  {
+    // we are getting user id from session storage which we stored in user-dashboard component
+    this.uid = sessionStorage.getItem('userId');
   }
 
 }
