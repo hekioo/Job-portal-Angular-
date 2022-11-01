@@ -35,9 +35,14 @@ export class JobService {
 
   }
 
+  //get job by location
+  public getJobByLoc(jobLoc:string):Observable<Job[]>
+  {
+    return this._http.get<Job[]>(`${this.baseUrl}viewjob/${jobLoc}`);
+  }
 
 
-//update User by id
+//update Job by id
 
 public updateJobById(jobId:number, job:Job):Observable<Job>
 {

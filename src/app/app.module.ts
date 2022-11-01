@@ -18,6 +18,8 @@ import { DefaultNavbarComponent } from './default-navbar/default-navbar.componen
 import { UserNavbarComponent } from './user-navbar/user-navbar.component';
 import { AddJobComponent } from './add-job/add-job.component';
 import { UpdateJobComponent } from './update-job/update-job.component';
+import { ViewJobByLocComponent } from './view-job-by-loc/view-job-by-loc.component';
+import { ViewJobByCatComponent } from './view-job-by-cat/view-job-by-cat.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { UpdateJobComponent } from './update-job/update-job.component';
     DefaultNavbarComponent,
     UserNavbarComponent,
     AddJobComponent,
-    UpdateJobComponent
+    UpdateJobComponent,
+    ViewJobByLocComponent,
+    ViewJobByCatComponent
   ],
   imports: [
     BrowserModule,

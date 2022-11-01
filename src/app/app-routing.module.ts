@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { UpdateJobComponent } from './update-job/update-job.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
+import { ViewJobByLocComponent } from './view-job-by-loc/view-job-by-loc.component';
 import { ViewJobsComponent } from './view-jobs/view-jobs.component';
 import { ViewUserComponent } from './view-user/view-user.component';
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path:'add-job', component:AddJobComponent},
   {path:'user-list', component: ViewUserComponent},
   {path:'job-list', component: ViewJobsComponent},
+  {path:'job-listByLoc', component: ViewJobByLocComponent},
   {path:'update-user/:userId', component: UpdateUserComponent},
   {path:'update-job/:jobId', component: UpdateJobComponent},
   {path:'login', component: LoginComponent},

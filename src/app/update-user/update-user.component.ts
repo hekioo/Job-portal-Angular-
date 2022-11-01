@@ -46,14 +46,15 @@ export class UpdateUserComponent implements OnInit {
 
 
       this.updateUserForm = this._formBuilder.group({
-        userId: [0],
+        userId: [this.uid],
         userName: [response.userName, Validators.compose([Validators.required, Validators.minLength(4)])],  //Validators.compose is used to to combine all the validations at once
         userEmail: [response.userEmail, Validators.compose([Validators.required, Validators.email])],
         userPassword: [response.userPassword, Validators.compose([Validators.required, Validators.minLength(6)])],
-        userMobile: [response.userMobile, Validators.compose([Validators.required, Validators.pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)])],
+        userMobile: [response.userMobile, Validators.compose([Validators.required])],
         userQualification: [response.userQualification, Validators.compose([Validators.required])],
         userSkills: [response.userSkills, Validators.compose([Validators.required])]
       });
+      // Validators.pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)
     },
     error => {
       console.log(error);
@@ -72,6 +73,8 @@ export class UpdateUserComponent implements OnInit {
 
   updateUser()
   {
+    console.log(this.updateUserForm.valid);
+    console.log(this.updateUserForm.value);
     if(this.updateUserForm.valid)
     {
       Swal.fire({

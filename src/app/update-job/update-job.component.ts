@@ -13,9 +13,9 @@ import { Job } from '../models/job';
 export class UpdateJobComponent implements OnInit {
 
   jid:number ;
-  
   job:Job;
   updateJobForm: FormGroup;
+
   constructor(private _activatedRouter:ActivatedRoute,
               private _jobService:JobService,
               private _formBuilder:FormBuilder,
@@ -28,9 +28,9 @@ export class UpdateJobComponent implements OnInit {
                   companyName: ['', Validators.compose([Validators.required])], 
                   jobTitle: ['', Validators.compose([Validators.required, Validators.minLength(10)])],  //Validators.compose is used to to combine all the validations at once
                   jobCategory: ['', Validators.compose([Validators.required])],
-                  jobDescription: ['', Validators.compose([Validators.required,])],
+                  jobDescription: ['', Validators.compose([Validators.required])],
                   jobLocation: ['', Validators.compose([Validators.required])],
-                  jobSalary: ['', Validators.compose([Validators.required, Validators.min(250000)])]
+                  jobSalary: ['', Validators.compose([Validators.required, Validators.pattern(/^[1-9]+$/)])]
             
             
                 });
@@ -47,13 +47,13 @@ export class UpdateJobComponent implements OnInit {
 
       this.updateJobForm = this._formBuilder.group({
 
-        jobId: [0],
+        jobId: [this.jid],
         companyName: [response.companyName, Validators.compose([Validators.required])], 
         jobTitle: [response.jobTitle, Validators.compose([Validators.required, Validators.minLength(10)])],  //Validators.compose is used to to combine all the validations at once
         jobCategory: [response.jobCategory, Validators.compose([Validators.required])],
         jobDescription: [response.jobDescription, Validators.compose([Validators.required,])],
         jobLocation: [response.jobLocation, Validators.compose([Validators.required])],
-        jobSalary: [response.jobSalary, Validators.compose([Validators.required, Validators.pattern(/^[1-9]+$/)])]
+        jobSalary: [response.jobSalary, Validators.compose([Validators.required, Validators.pattern(/^[0-9]+$/)])]
   
 
       });
@@ -67,6 +67,9 @@ export class UpdateJobComponent implements OnInit {
 
   updateJob()
   {
+    console.log(this.updateJobForm.valid);
+    console.log(this.updateJobForm.value);
+
     if(this.updateJobForm.valid)
     {
       Swal.fire({
