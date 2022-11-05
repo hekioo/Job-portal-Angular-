@@ -1,4 +1,4 @@
-<h1 class="text-center">User Profile</h1>
+<h2 class="text-center my-3">Profile ({{this.user.userName}}) </h2>
 
 <div class="container my-5">
     <div class="bootstrap-wrapper">
@@ -7,7 +7,7 @@
                 <form [formGroup]="updateUserForm" (ngSubmit) = "updateUserProfile()">
                     <fieldset disabled>
                     <div class="form-group">
-                        <label for="userName" class="form-label">User Name</label>
+                        <label for="userName" class="form-label">User Name{{this.uid}}</label>
                         <input type="text" class="form-control" formControlName="userName" id="userName" name="userName">
                         <span *ngIf="updateUserForm.controls['userName'].touched && !updateUserForm.controls['userName'].valid">
 
@@ -109,7 +109,7 @@
 
 
                     <div class="form-group">
-                    <button type="submit" class="btn btn-outline-success my-3">Update</button>
+                    <button type="submit" class="btn btn-outline-success my-3" >Update</button>
                     <!-- <button type="reset" class="btn btn-outline-warning">Reset</button> -->
                 </div>
                 </form>

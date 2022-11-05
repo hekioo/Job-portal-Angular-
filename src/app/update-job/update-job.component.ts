@@ -85,8 +85,8 @@ export class UpdateJobComponent implements OnInit {
           this._jobService.updateJobById(this.jid, this.updateJobForm.value).subscribe(response => 
           {
             Swal.fire('Record Updated Successfully!', '', 'success');
-            this._route.navigate(['job-list']);
-
+            //this._route.navigate(['/admin/job-list']);    // previous it was job-list
+            this._route.navigate(['/admin/job-list']);
           },
           error => {
             console.log(error);

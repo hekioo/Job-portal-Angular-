@@ -1,0 +1,41 @@
+
+.backImg-user{
+  
+    background-image: url(../../assets/images/home_page.webp);
+    width: 100%;
+
+    background-size: cover;
+    background-position: center;
+    
+    height: 90vh;
+}
+
+
+.backImg{
+  
+    background-image: url(../../assets/images/admin-page.png);
+    width: 100%;
+
+    background-size: cover;
+    background-position: center;
+    
+    height: 90vh;
+}
+.heading-main
+{
+    font-weight: bold;
+    font-size: 24px;
+
+}
+
+.btn-start
+{
+    margin-left: 40px;
+}
+
+.heading{
+    color: black;
+    font-size: 32px;
+    font-weight: bold;
+    margin-top:195px;
+}

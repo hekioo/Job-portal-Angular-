@@ -25,7 +25,7 @@ export class AddJobComponent implements OnInit {
                   jobCategory: ['', Validators.compose([Validators.required])],
                   jobDescription: ['', Validators.compose([Validators.required,])],
                   jobLocation: ['', Validators.compose([Validators.required])],
-                  jobSalary: ['', Validators.compose([Validators.required, Validators.pattern(/^[1-9]+$/)])]
+                  jobSalary: ['', Validators.compose([Validators.required, Validators.pattern(/^[0-9]+$/)])]
             
             
                 });
@@ -62,8 +62,10 @@ export class AddJobComponent implements OnInit {
  
            this._jobServive.addJob(this.jobReg.value).subscribe(response => {
              Swal.fire('Record Saved!', '', 'success')
-             this._router.navigate(['job-list']);  // to navigate automatically to view-job list
-           },
+             //this._router.navigate(['admin/job-list']);  // previous it was "job-list"// to navigate automatically to view-job list
+             this._router.navigate(['admin/job-list']);  // previous it was "job-list"// to navigate automatically to view-job list
+
+            },
              error => {
                console.log(error);
              })

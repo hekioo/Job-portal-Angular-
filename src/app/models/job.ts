@@ -1,3 +1,5 @@
+import { User } from "./user";
+
 export class Job {
 
     jobId:number;
@@ -7,5 +9,9 @@ export class Job {
     jobDescription:string;
     jobLocation: string;
     jobSalary: string;
+
+    userList: User[];
+
+    user1:User;
 
 }

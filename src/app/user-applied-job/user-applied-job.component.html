@@ -1,0 +1,33 @@
+<h1 class="text-center my-4">All Applied Jobs</h1>
+
+<div class="container-fluid">
+  <table class="table container-fluid">
+    <thead>
+      <tr>
+        <!-- <th scope="col" class="text-center">Company Name</th> -->
+
+        <th scope="col">Job ID</th>
+        <th scope="col">Company Name</th>
+        <th scope="col">Job Title</th>
+        <th scope="col">Job Description</th>
+        <th scope="col">Job Salary</th>
+        <th scope="col">Job Location</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+      <tr *ngFor="let data of userAppliedJobList">
+
+        <td *ngIf="data.users.userId == this.uid">{{data.jobs.jobId}}</td>
+        <td *ngIf="data.users.userId == this.uid">{{data.jobs.companyName}}</td>
+        <td *ngIf="data.users.userId == this.uid">{{data.jobs.jobTitle}}</td>
+
+        <td *ngIf="data.users.userId == this.uid">{{data.jobs.jobDescription}}</td>
+        <td *ngIf="data.users.userId == this.uid">{{data.jobs.jobSalary}}</td>
+        <td *ngIf="data.users.userId == this.uid">{{data.jobs.jobLocation}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>

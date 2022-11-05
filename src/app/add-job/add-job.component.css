@@ -1,3 +1,9 @@
 span{
     color:red;
+    font-weight: bold;
+}
+
+.main{
+    background-image: linear-gradient(135deg, rgb(62, 170, 209), white);
+
 }

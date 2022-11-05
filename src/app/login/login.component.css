@@ -1,3 +1,43 @@
+/* span{
+    color: red;
+}
+
+.borderr
+{
+    margin-top: 100px;
+    padding: 20px 0;
+    
+    border: 1px solid grey;
+}
+
+.login
+{
+    text-decoration: underline;
+} */
+
+
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
+
 span{
     color: red;
+    font-weight: bold;
+}
+
+h1{
+    font-size: 44px;
+   color:rgb(75, 142, 202);
 }

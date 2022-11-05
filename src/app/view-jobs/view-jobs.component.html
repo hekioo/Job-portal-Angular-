@@ -1,22 +1,28 @@
-<h1 class="text-center">View All Jobs</h1>
+<h1 class="text-center my-3">View All Jobs</h1>
 
-<div class="container">
-    <table class="table">
+<div class="table-responsive container-fluid">
+  <!-- <div *ngIf="this.category === 'yes'"> -->
+   
+    <!-- <app-view-job-by-loc (searchTextChange)="onSearchTextEntered($event)"></app-view-job-by-loc> -->
+  <!-- </div> -->
+<!-- <div *ngIf="this.category === 'no'"> -->
+    <table class="table table-striped ">
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Comapany Name</th>
+            <!-- <th scope="col">ID</th> -->
+            <th scope="col">Company Name</th>
             <th scope="col">Job Title</th>
             <th scope="col">Job Category</th>
             <th scope="col">Job Description</th>
             <th scope="col">Job Location</th>
             <th scope="col">Job Salary</th>
-            <th scope="col" >Action</th>
+            <!-- <th scope="col">User</th> -->
+            <th scope="col" class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
             <tr *ngFor="let data of jobList">
-                <td> {{data.jobId}}</td>
+                <!-- <td> {{data.jobId}}</td> -->
                 <td> {{data.companyName}}</td>
                 <td>{{data.jobTitle}}</td>
                 <td>{{data.jobCategory}}</td>
@@ -24,13 +30,34 @@
                 
                 <td>{{data.jobLocation}} </td>
                 <td>{{data.jobSalary}}</td>
-                <td><a routerLink="/admin/update-job/{{data.jobId}}"><button type="button" class="btn btn-outline-warning mx-1" value="Update">Update</button></a> <a><button type="button" class="btn btn-outline-danger" value="Delete" (click)="deleteJob(data.jobId)">Delete</button></a></td>
-    
+                <!-- <td>{{data.userList}}</td> -->
+                
+
+                <!-- <td><a routerLink="/admin/update-job/{{data.jobId}}"><button type="button" class="btn btn-outline-warning mx-1" value="Update">Update</button></a> <a><button type="button" class="btn btn-outline-danger" value="Delete" (click)="deleteJob(data.jobId)">Delete</button></a></td> -->
+                <div *ngIf="this.typee === 'adminType'">
+                <td>
+                  <a routerLink="/admin/update-job/{{data.jobId}}"><input type="button" class="btn btn-outline-warning " value="Update"></a> 
+                  <a><input type="button" class="btn btn-outline-danger mx-1" value="Delete" (click)="deleteJob(data.jobId)"></a>
+                </td>
+              </div>
+              <div *ngIf="this.typee === 'userType'">
+              <!-- <td><a ><button type="button" class="btn btn-outline-warning mx-1" value="Update" id="applyJobBtn" (click)="setApplied($event.target, 'Applied')" >Apply Job</button></a></td> -->
+              <td>
+                <a>
+                  <button type="button" class="btn btn-outline-warning mx-1" value="Update" id="applyJobBtn" (click)="appliedJob(data.jobId, $event.target, 'Applied')" >Apply Job</button>
+                </a>
+              </td>
+            </div>
+                <!-- //previous link was "update-job/{{data.jobId}}"" -->
               </tr>
-         
+     
+
         </tbody>
       </table>
-</div>
+      <app-view-job-by-loc></app-view-job-by-loc>
+    </div>
+     
+<!-- </div> -->
 
 
 

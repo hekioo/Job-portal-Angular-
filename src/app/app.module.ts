@@ -22,6 +22,8 @@ import { ViewJobByLocComponent } from './view-job-by-loc/view-job-by-loc.compone
 import { ViewJobByCatComponent } from './view-job-by-cat/view-job-by-cat.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AppliedJobComponent } from './applied-job/applied-job.component';
+import { UserAppliedJobComponent } from './user-applied-job/user-applied-job.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +44,9 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     ViewJobByLocComponent,
     ViewJobByCatComponent,
     PagenotfoundComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    AppliedJobComponent,
+    UserAppliedJobComponent
   ],
   imports: [
     BrowserModule,

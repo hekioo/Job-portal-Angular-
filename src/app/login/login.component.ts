@@ -22,6 +22,10 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
     sessionStorage.removeItem('email');
+    
+    sessionStorage.removeItem('type');
+    sessionStorage.removeItem('userId');
+    //sessionStorage.setItem('defaultType', "default");
     this.loginForm = this._formBuilder.group({
 
       userEmail: ['',Validators.compose([Validators.required, Validators.email])],
@@ -39,10 +43,13 @@ export class LoginComponent implements OnInit {
       var email = this.loginForm.get('userEmail')?.value;
       var password = this.loginForm.get('userPassword')?.value;
 
+
       if((email=="admin@gmail.com") && (password=="adminn"))
       {
         alert("admin");
         sessionStorage.setItem('email', "admin");
+        sessionStorage.setItem('type', "adminType");
+        //sessionStorage.removeItem('defaultType');
 
         this._route.navigate(['admin']);
       }
@@ -55,11 +62,15 @@ export class LoginComponent implements OnInit {
             {
               alert("user login");
               sessionStorage.setItem('email', response.userEmail.toString());
+              sessionStorage.setItem('type', "userType");
+              //sessionStorage.removeItem('defaultType');
 
                 this._route.navigate(['user', response.userId]);
             }
             else{
-                alert("Login Failed!");
+                alert("Invalid Credentials!");
+                this._route.navigate(['register-page']);
+                window.confirm("Guess you are Not registered, Please Register First!");
             }
 
         }, 

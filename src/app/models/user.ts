@@ -10,5 +10,5 @@ export class User {
     userQualification: string;
     userSkills: string;
 
-    jobList: Job[];
+    //jobList: Job[];
 }

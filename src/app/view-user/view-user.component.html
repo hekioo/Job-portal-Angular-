@@ -1,4 +1,4 @@
-<h1 class="text-center">View All Users</h1>
+<h1 class="text-center my-4">View All Users</h1>
 
 <div class="container">
     <table class="table">
@@ -7,11 +7,11 @@
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
-            <th scope="col">Password</th>
+          
             <th scope="col">Mobile</th>
             <th scope="col">Qualification</th>
             <th scope="col">Skills</th>
-            <th scope="col" >Action</th>
+           
           </tr>
         </thead>
         <tbody>
@@ -19,13 +19,14 @@
                 <td> {{data.userId}}</td>
                 <td> {{data.userName}}</td>
                 <td>{{data.userEmail}}</td>
-                <td>{{data.userPassword}}</td>
+             
                 <td>{{data.userMobile}}</td>
                 <td>{{data.userQualification}} </td>
                 <td>{{data.userSkills}}</td>
-                <td><a routerLink="/admin/update-user/{{data.userId}}"><button type="button" class="btn btn-outline-warning mx-1" value="Update">Update</button></a> 
-                  <a><button type="button" class="btn btn-outline-danger" value="Delete" (click)="deleteUser(data.userId)">Delete</button></a></td>
-    
+                <td>
+                  <!-- <a routerLink="/admin/update-user/{{data.userId}}"><button type="button" class="btn btn-outline-warning mx-1" value="Update">Update</button></a>  -->
+                  <!-- <a><button type="button" class="btn btn-outline-danger" value="Delete" (click)="deleteUser(data.userId)">Delete</button></a></td> -->
+                  <!-- //previous link was "update-user/{{data.userId}}"" -->
               </tr>
          
         </tbody>

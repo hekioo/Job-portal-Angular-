@@ -50,7 +50,7 @@ export class UserProfileComponent implements OnInit {
         userName: [response.userName, Validators.compose([Validators.required, Validators.minLength(4)])],  //Validators.compose is used to to combine all the validations at once
         userEmail: [response.userEmail, Validators.compose([Validators.required, Validators.email])],
         userPassword: [response.userPassword, Validators.compose([Validators.required, Validators.minLength(6)])],
-        userMobile: [response.userMobile, Validators.compose([Validators.required])],
+        userMobile: [response.userMobile, Validators.compose([Validators.required, , Validators.pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)])],
         userQualification: [response.userQualification, Validators.compose([Validators.required])],
         userSkills: [response.userSkills, Validators.compose([Validators.required])]
       });
@@ -83,7 +83,7 @@ export class UserProfileComponent implements OnInit {
           this._userService.updateUserById(this.uid, this.updateUserForm.value).subscribe(response => 
           {
             Swal.fire('Profile Updated Successfully!', '', 'success');
-            this._route.navigate(['job-list']);
+            this._route.navigate(['user/uid/job-list']);
 
           },
           error => {
