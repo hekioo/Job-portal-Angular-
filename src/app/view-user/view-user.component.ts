@@ -16,14 +16,12 @@ export class ViewUserComponent implements OnInit {
   constructor(private _userService:UserService) { }
 
   ngOnInit(): void {
-
-
-    this.getAllUserDetails();
-
-    
+    this.getAllUserDetails();   
   }
 
 
+
+  // function to get all the details of users registered onto the portal (ONLY ADMIN)
   getAllUserDetails()
   {
     this._userService.getAllUser().subscribe(response => {
@@ -34,6 +32,8 @@ export class ViewUserComponent implements OnInit {
     })
   }
 
+
+    // function to delete users registered onto the portal (ONLY ADMIN)
 
   deleteUser(id:number)
   {

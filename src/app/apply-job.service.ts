@@ -14,9 +14,9 @@ export class ApplyJobService {
   private baseUrl = "http://localhost:8080/appliedJob/";
 
   // to  send data to addApplied jo function in backend
-public addAppliedJob(applyJobRecord: ApplyJob):Observable<ApplyJob[]>
+public addAppliedJob(jid:number,uid:number):Observable<ApplyJob[]>
 {
-  return this._http.post<ApplyJob[]>(`${this.baseUrl}`, applyJobRecord);
+  return this._http.post<ApplyJob[]>(`${this.baseUrl}${uid}/${jid}`, '');
 }
 
 

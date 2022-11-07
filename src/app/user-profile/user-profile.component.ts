@@ -28,7 +28,7 @@ export class UserProfileComponent implements OnInit {
         userName: ['', Validators.compose([Validators.required, Validators.minLength(4)])],  //Validators.compose is used to to combine all the validations at once
         userEmail: ['', Validators.compose([Validators.required, Validators.email])],
         userPassword: ['', Validators.compose([Validators.required, Validators.minLength(6)])],
-        userMobile: ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)])],
+        userMobile: ['', Validators.compose([Validators.required, Validators.pattern(/^[1-9]+$/)])],
         userQualification: ['', Validators.compose([Validators.required])],
         userSkills: ['', Validators.compose([Validators.required])]
   
@@ -63,7 +63,7 @@ export class UserProfileComponent implements OnInit {
 
 
 
-
+// function to update the User Profile (USER PART)
   updateUserProfile()
   {
     console.log(this.updateUserForm.valid);

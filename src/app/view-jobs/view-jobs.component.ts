@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, UrlHandlingStrategy } from '@angular/router';
 import Swal from 'sweetalert2';
 import { ApplyJobService } from '../apply-job.service';
 import { JobService } from '../job.service';
@@ -19,11 +19,9 @@ export class ViewJobsComponent implements OnInit {
   typee:any;
   category:any;
 
-
-  // searchText: string = '';
-
   userList: User[] = [];
   jobList:Job[]=[];
+
 
   // objects for 3rd model
   userObj:User;
@@ -41,66 +39,76 @@ export class ViewJobsComponent implements OnInit {
   }
 
 
-
-
-
-  // onSearchTextEntered(searchValue:string)
-  // {
-  //   this.searchText = searchValue;
-  //   console.log(this.searchText);
-  // }
-  
-
-
+  // Function to display all the listed jobs onto the portal for Admin and User
   getAllJobDetails()
   {
     this._jobService.getAllJob().subscribe(response => {
       console.log(response);
       this.jobList = response;
-      // this.userList = response;
     },
     error => {
       console.log(error);
     })
   }
 
-
-// function for changing the Apply Button Text to Applied
-  // setApplied(element:any, text:any){
-  //   element.textContent = text;
-  //   element.disabled = true;
-
+  // getJobDetailByCategory(selectedCategory: string)
+  // {
+  //   this._jobService.getJobByLoc(selectedCategory).subscribe(response => {
+      
+  //       this.jobListByLoc = response;
+      
+     
+      
+  //     console.log(response);
+  //   },
+  //   error => {
+  //     console.log(error);
+  //   })
   // }
 
 
+  // function to show the previous Applied jobs
   appliedJob(jobId:number, element:any, text:any)
   {
-    this.userObj.userId = this.uid;  //chnage typeOf
-    //this.userObj.userId = JSON.parse(sessionStorage.getItem('userId') as any);  //chnage typeOf
-    //console.log(sessionStorage.getItem('userId'));
-    //console.log(typeof(JSON.parse(sessionStorage.getItem('userId') as any)));
-    this.jobObj.jobId = jobId;
-    this.applyJob.jobs = this.jobObj;
-    this.applyJob.users = this.userObj;
 
     // for changing button text
     element.textContent = text;
     element.disabled = true;
 
-    this._applyJobService.addAppliedJob(this.applyJob).subscribe(response => {
-      
-      this._router.navigate(['applied-job']);  
+    // this.userObj.userId = this.uid;  //chnage typeOf
+    // //this.userObj.userId = JSON.parse(sessionStorage.getItem('userId') as any);  //chnage typeOf
+    // //console.log(sessionStorage.getItem('userId'));
+    // //console.log(typeof(JSON.parse(sessionStorage.getItem('userId') as any)));
+    // this.jobObj.jobId = jobId;
+    // this.applyJob.jobs = this.jobObj;
+    // this.applyJob.users = this.userObj;
+
+    this._applyJobService.addAppliedJob(jobId,this.uid).subscribe(response => {
+
+      Swal.fire({
+        title: 'You Have Successfully Applied for the Job',
+        width: 600,
+        padding: '3em',
+        color: 'green',
+        background: '#fff url(../../assets/images/success.webm)',
+        backdrop: `
+          rgba(0,0,123,0.4)
+          url(../../assets/images/success.webm)
+          left top
+          no-repeat
+        `
+      })
+
 
      },
       error => {
         console.log(error);
       })
 
-
   }
 
 
-
+// deleting the job function (ONLY ADMIN)
   deleteJob(id:number)
   {
     const swalWithBootstrapButtons = Swal.mixin({
@@ -125,6 +133,7 @@ export class ViewJobsComponent implements OnInit {
         this._jobService.deleteJob(id).subscribe(response => {
 
           this.getAllJobDetails();
+
 
           swalWithBootstrapButtons.fire(
             'Deleted!',

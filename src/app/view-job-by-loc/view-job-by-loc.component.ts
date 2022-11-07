@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, OutletContext } from '@angular/router';
 import Swal from 'sweetalert2';
+import { ApplyJobService } from '../apply-job.service';
 import { JobService } from '../job.service';
 import { Job } from '../models/job';
 
@@ -13,32 +14,19 @@ export class ViewJobByLocComponent implements OnInit {
 
   typee:any;
   selectedCategory = '';
+  uid:any;
 
   jobListByLoc:Job[]=[];
   jobLoc:string;
-  constructor(private _activatedRouter:ActivatedRoute,private _jobService:JobService) { }
+  constructor(private _activatedRouter:ActivatedRoute,private _jobService:JobService, private _applyJobService:ApplyJobService) { }
 
   ngOnInit(): void {
     //this.jobLoc = this._activatedRouter.snapshot.params['jobLocation'];
     this.getJobDetailByCategory(this.selectedCategory);
     this.typee = sessionStorage.getItem('type');
     sessionStorage.setItem('category', 'yes');
+    this.uid = sessionStorage.getItem('userId');
   }
-
-
-    // searching by keyword
-    // enteredSearchValue: string = '';
-
-    // @Output()
-    // searchTextChange: EventEmitter<string> = new EventEmitter<string>();
-
-    // onSeacrhTextChanged()
-    // {
-    //   this.searchTextChange.emit(this.enteredSearchValue);
-    // }
-
-
-
 
 
 
@@ -123,6 +111,46 @@ export class ViewJobByLocComponent implements OnInit {
 
   
   
+  appliedJob(jobId:number, element:any, text:any)
+  {
+
+    // for changing button text
+    element.textContent = text;
+    element.disabled = true;
+
+    // this.userObj.userId = this.uid;  //chnage typeOf
+    // //this.userObj.userId = JSON.parse(sessionStorage.getItem('userId') as any);  //chnage typeOf
+    // //console.log(sessionStorage.getItem('userId'));
+    // //console.log(typeof(JSON.parse(sessionStorage.getItem('userId') as any)));
+    // this.jobObj.jobId = jobId;
+    // this.applyJob.jobs = this.jobObj;
+    // this.applyJob.users = this.userObj;
+
+    this._applyJobService.addAppliedJob(jobId,this.uid).subscribe(response => {
+
+      Swal.fire({
+        title: 'You Have Successfully Applied for the Job',
+        width: 600,
+        padding: '3em',
+        color: 'green',
+        background: '#fff url(../../assets/images/success.webm)',
+        backdrop: `
+          rgba(0,0,123,0.4)
+          url(../../assets/images/success.webm)
+          left top
+          no-repeat
+        `
+      })
+
+      // this._router.navigate(['/user-applied-job']);  
+
+     },
+      error => {
+        console.log(error);
+      })
+
+  }
+
 
 
 }

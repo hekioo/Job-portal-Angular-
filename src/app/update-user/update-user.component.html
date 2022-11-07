@@ -1,55 +1,61 @@
-<h1 class="text-center">Update User Detail</h1>
+<h2 class="text-center">Update User Detail</h2>
 
 <div class="container my-5">
     <div class="bootstrap-wrapper">
         <div class="row">
             <div class="col-md-6 offset-3">
-                <form [formGroup]="updateUserForm" (ngSubmit) = "updateUser()">
+                <form [formGroup]="updateUserForm" (ngSubmit)="updateUser()">
                     <div class="form-group">
                         <label for="userName" class="form-label">User Name</label>
-                        <input type="text" class="form-control" formControlName="userName" id="userName" name="userName">
-                        <span *ngIf="updateUserForm.controls['userName'].touched && !updateUserForm.controls['userName'].valid">
+                        <input type="text" class="form-control" formControlName="userName" id="userName"
+                            name="userName">
+                        <span
+                            *ngIf="updateUserForm.controls['userName'].touched && !updateUserForm.controls['userName'].valid">
 
                             <span *ngIf="updateUserForm.controls['userName'].hasError('required')">
-                                user Name Can't be Empty!
-                            </span> 
+                                User Name Can't be Empty!
+                            </span>
 
                             <span *ngIf="updateUserForm.controls['userName'].hasError('minlength')">
-                                user Name Can't be Less than 4 Characters!
-                            </span> 
+                                User Name Can't be Less than 4 Characters!
+                            </span>
 
 
                         </span>
                     </div>
                     <div class="form-group">
                         <label for="userEmail" class="form-label">Email address</label>
-                        <input type="email" class="form-control" formControlName="userEmail" id="userEmail" name="userEmail" aria-describedby="emailHelp">
-                        <span *ngIf="updateUserForm.controls['userEmail'].touched && !updateUserForm.controls['userEmail'].valid">
+                        <input type="email" class="form-control" formControlName="userEmail" id="userEmail"
+                            name="userEmail" aria-describedby="emailHelp">
+                        <span
+                            *ngIf="updateUserForm.controls['userEmail'].touched && !updateUserForm.controls['userEmail'].valid">
 
                             <span *ngIf="updateUserForm.controls['userEmail'].hasError('required')">
-                                Eamil Can't be Empty!
-                            </span> 
+                                Email Can't be Empty!
+                            </span>
 
                             <span *ngIf="updateUserForm.controls['userEmail'].hasError('email')">
                                 Email is not in correct format
-                            </span> 
+                            </span>
 
 
                         </span>
                     </div>
-                    
+
                     <div class="form-group">
                         <label for="userPassword" class="form-label">Password</label>
-                        <input type="password" class="form-control" formControlName="userPassword" id="userPassword" name="userPassword">
-                        <span *ngIf="updateUserForm.controls['userPassword'].touched && !updateUserForm.controls['userPassword'].valid">
+                        <input type="password" class="form-control" formControlName="userPassword" id="userPassword"
+                            name="userPassword">
+                        <span
+                            *ngIf="updateUserForm.controls['userPassword'].touched && !updateUserForm.controls['userPassword'].valid">
 
                             <span *ngIf="updateUserForm.controls['userPassword'].hasError('required')">
                                 Password Can't be Empty!
-                            </span> 
+                            </span>
 
                             <span *ngIf="updateUserForm.controls['userPassword'].hasError('minlength')">
-                                password Can't be Less than 6 Characters!
-                            </span> 
+                                Password Can't be Less than 6 Characters!
+                            </span>
 
 
                         </span>
@@ -57,12 +63,14 @@
 
                     <div class="form-group">
                         <label for="userMobile" class="form-label">Mobile</label>
-                        <input type="text" class="form-control" formControlName="userMobile" id="userMobile" name="userMobile">
-                        <span *ngIf="updateUserForm.controls['userMobile'].touched && !updateUserForm.controls['userMobile'].valid">
+                        <input type="text" class="form-control" formControlName="userMobile" id="userMobile"
+                            name="userMobile">
+                        <span
+                            *ngIf="updateUserForm.controls['userMobile'].touched && !updateUserForm.controls['userMobile'].valid">
 
                             <span *ngIf="updateUserForm.controls['userMobile'].hasError('required')">
                                 Mobile Can't be Empty!
-                            </span> 
+                            </span>
 
                             <!-- <span *ngIf="updateUserForm.controls['userMobile'].hasError('minlength')">
                                 Mobile Can't be Less than 10 Characters!
@@ -70,7 +78,9 @@
 
                             <span *ngIf="updateUserForm.controls['userMobile'].hasError('pattern')">
                                 Mobile No. not in correct format!
-                            </span> 
+                            </span>
+                            
+
 
 
                         </span>
@@ -78,14 +88,16 @@
 
                     <div class="form-group">
                         <label for="userQualification" class="form-label">Qualification</label>
-                        <input type="text" class="form-control" formControlName="userQualification" id="userQualification" name="userQualification">
-                        <span *ngIf="updateUserForm.controls['userQualification'].touched && !updateUserForm.controls['userQualification'].valid">
+                        <input type="text" class="form-control" formControlName="userQualification"
+                            id="userQualification" name="userQualification">
+                        <span
+                            *ngIf="updateUserForm.controls['userQualification'].touched && !updateUserForm.controls['userQualification'].valid">
 
                             <span *ngIf="updateUserForm.controls['userQualification'].hasError('required')">
                                 Qualification Can't be Empty!
-                            </span> 
+                            </span>
 
-        
+
 
 
                         </span>
@@ -93,14 +105,16 @@
 
                     <div class="form-group">
                         <label for="userSkills" class="form-label">Skill set</label>
-                        <input type="text" class="form-control" formControlName="userSkills" id="userSkills" name="userSkills">
-                        <span *ngIf="updateUserForm.controls['userSkills'].touched && !updateUserForm.controls['userSkills'].valid">
+                        <input type="text" class="form-control" formControlName="userSkills" id="userSkills"
+                            name="userSkills">
+                        <span
+                            *ngIf="updateUserForm.controls['userSkills'].touched && !updateUserForm.controls['userSkills'].valid">
 
                             <span *ngIf="updateUserForm.controls['userSkills'].hasError('required')">
                                 Skills Can't be Empty!
-                            </span> 
+                            </span>
 
-                           
+
 
 
                         </span>
@@ -108,9 +122,9 @@
 
 
                     <div class="form-group">
-                    <button type="submit" class="btn btn-outline-success">Update</button>
-                    <button type="reset" class="btn btn-outline-warning">Reset</button>
-                </div>
+                        <button type="submit" class="btn btn-outline-success">Update</button>
+                        <button type="reset" class="btn btn-outline-warning">Reset</button>
+                    </div>
                 </form>
             </div>
         </div>

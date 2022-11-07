@@ -37,7 +37,7 @@ export class AddUserComponent implements OnInit {
   }
 
 
-
+// Function to add a new User To the Portal (REGISTRATION PAGE)
   register() {
    // console.log(this.userReg.valid);  // this will set to TRUE only if all the validations are satisfied
     // console.log(this.userReg.value);  // this is used to get all the values from all the input tags

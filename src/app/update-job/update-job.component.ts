@@ -12,66 +12,63 @@ import { Job } from '../models/job';
 })
 export class UpdateJobComponent implements OnInit {
 
-  jid:number ;
-  job:Job;
+  jid: number;
+  job: Job;
   updateJobForm: FormGroup;
 
-  constructor(private _activatedRouter:ActivatedRoute,
-              private _jobService:JobService,
-              private _formBuilder:FormBuilder,
-              private _route:Router) 
-              { 
+  constructor(private _activatedRouter: ActivatedRoute,
+    private _jobService: JobService,
+    private _formBuilder: FormBuilder,
+    private _route: Router) {
 
-                this.updateJobForm = this._formBuilder.group({
+    this.updateJobForm = this._formBuilder.group({
 
-                  jobId: [0],
-                  companyName: ['', Validators.compose([Validators.required])], 
-                  jobTitle: ['', Validators.compose([Validators.required, Validators.minLength(10)])],  //Validators.compose is used to to combine all the validations at once
-                  jobCategory: ['', Validators.compose([Validators.required])],
-                  jobDescription: ['', Validators.compose([Validators.required])],
-                  jobLocation: ['', Validators.compose([Validators.required])],
-                  jobSalary: ['', Validators.compose([Validators.required, Validators.pattern(/^[1-9]+$/)])]
-            
-            
-                });
-              }
+      jobId: [0],
+      companyName: ['', Validators.compose([Validators.required])],
+      jobTitle: ['', Validators.compose([Validators.required, Validators.minLength(5)])],  //Validators.compose is used to to combine all the validations at once
+      jobCategory: ['', Validators.compose([Validators.required])],
+      jobDescription: ['', Validators.compose([Validators.required])],
+      jobLocation: ['', Validators.compose([Validators.required])],
+      jobSalary: ['', Validators.compose([Validators.required, Validators.pattern(/^[1-9]+$/)])]
+
+
+    });
+  }
 
   ngOnInit(): void {
 
     this.jid = this._activatedRouter.snapshot.params['jobId'];
     this._jobService.getJobById(this.jid).subscribe(response => {
 
-      this.job=response;
+      this.job = response;
       console.log(response);
 
 
       this.updateJobForm = this._formBuilder.group({
 
         jobId: [this.jid],
-        companyName: [response.companyName, Validators.compose([Validators.required])], 
+        companyName: [response.companyName, Validators.compose([Validators.required])],
         jobTitle: [response.jobTitle, Validators.compose([Validators.required, Validators.minLength(10)])],  //Validators.compose is used to to combine all the validations at once
         jobCategory: [response.jobCategory, Validators.compose([Validators.required])],
         jobDescription: [response.jobDescription, Validators.compose([Validators.required,])],
         jobLocation: [response.jobLocation, Validators.compose([Validators.required])],
         jobSalary: [response.jobSalary, Validators.compose([Validators.required, Validators.pattern(/^[0-9]+$/)])]
-  
+
 
       });
     },
-    error => {
+      error => {
         console.log(error);
-    })
+      })
 
   }
 
 
-  updateJob()
-  {
+  updateJob() {
     console.log(this.updateJobForm.valid);
     console.log(this.updateJobForm.value);
 
-    if(this.updateJobForm.valid)
-    {
+    if (this.updateJobForm.valid) {
       Swal.fire({
         title: 'Do you want to Update the Record?',
         showDenyButton: true,
@@ -82,15 +79,13 @@ export class UpdateJobComponent implements OnInit {
         /* Read more about isConfirmed, isDenied below */
         if (result.isConfirmed) {
 
-          this._jobService.updateJobById(this.jid, this.updateJobForm.value).subscribe(response => 
-          {
+          this._jobService.updateJobById(this.jid, this.updateJobForm.value).subscribe(response => {
             Swal.fire('Record Updated Successfully!', '', 'success');
-            //this._route.navigate(['/admin/job-list']);    // previous it was job-list
             this._route.navigate(['/admin/job-list']);
           },
-          error => {
-            console.log(error);
-          })
+            error => {
+              console.log(error);
+            })
 
 
         } else if (result.isDenied) {

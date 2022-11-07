@@ -122,150 +122,164 @@
 
 <section class="vh-60" style="background-color: rgb(178, 219, 239);">
     <div class="container h-60">
-      <div class="row d-flex justify-content-center align-items-center h-60">
-        <div class="col-lg-12 col-xl-11">
-          <div class="card text-black" style="border-radius: 25px;">
-            <div class="card-body p-md-5">
-              <div class="row justify-content-center">
-                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-  
-                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-  
-                  
-                    <form [formGroup]="userReg" (ngSubmit) = "register()" class="mx-1 mx-md-4">
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fa fa-user fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="text" placeholder="John123" class="form-control" formControlName="userName" id="userName" name="userName">
-                        <span *ngIf="userReg.controls['userName'].touched && !userReg.controls['userName'].valid">
+        <div class="row d-flex justify-content-center align-items-center h-60">
+            <div class="col-lg-12 col-xl-11">
+                <div class="card text-black" style="border-radius: 25px;">
+                    <div class="card-body p-md-5">
+                        <div class="row justify-content-center">
+                            <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
 
-                            <span *ngIf="userReg.controls['userName'].hasError('required')">
-                                User Name Can't be Empty!
-                            </span> 
-
-                            <span *ngIf="userReg.controls['userName'].hasError('minlength')">
-                                User Name Can't be Less than 4 Characters!
-                            </span> 
+                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
 
-                        </span>
-                      </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fa fa-envelope fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="email" placeholder="abc@example.com" class="form-control" formControlName="userEmail" id="userEmail" name="userEmail" aria-describedby="emailHelp">
-                        <span *ngIf="userReg.controls['userEmail'].touched && !userReg.controls['userEmail'].valid">
+                                <form [formGroup]="userReg" (ngSubmit)="register()" class="mx-1 mx-md-4">
 
-                            <span *ngIf="userReg.controls['userEmail'].hasError('required')">
-                                Email Can't be Empty!
-                            </span> 
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fa fa-user fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" placeholder="John123" class="form-control"
+                                                formControlName="userName" id="userName" name="userName">
+                                            <span
+                                                *ngIf="userReg.controls['userName'].touched && !userReg.controls['userName'].valid">
 
-                            <span *ngIf="userReg.controls['userEmail'].hasError('email')">
-                                Email is not in correct format
-                            </span> 
+                                                <span *ngIf="userReg.controls['userName'].hasError('required')">
+                                                    User Name Can't be Empty!
+                                                </span>
 
-
-                        </span>
-                      </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fa fa-lock fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="password" placeholder="Password length must be min 6" class="form-control" formControlName="userPassword" id="userPassword" name="userPassword">
-                        <span *ngIf="userReg.controls['userPassword'].touched && !userReg.controls['userPassword'].valid">
-
-                            <span *ngIf="userReg.controls['userPassword'].hasError('required')">
-                                Password Can't be Empty!
-                            </span> 
-
-                            <span *ngIf="userReg.controls['userPassword'].hasError('minlength')">
-                                password Can't be Less than 6 Characters!
-                            </span> 
+                                                <span *ngIf="userReg.controls['userName'].hasError('minlength')">
+                                                    User Name Can't be Less than 4 Characters!
+                                                </span>
 
 
-                        </span>
-                      </div>
-                    </div>
-  
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fa fa-phone fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <input type="text" class="form-control" placeholder="Enter your 10 digit Mobile Number" formControlName="userMobile" id="userMobile" name="userMobile" aria-label="Username" aria-describedby="basic-addon1">
-                        <span *ngIf="userReg.controls['userMobile'].touched && !userReg.controls['userMobile'].valid">
+                                            </span>
+                                        </div>
+                                    </div>
 
-                            <span *ngIf="userReg.controls['userMobile'].hasError('required')">
-                                Mobile Can't be Empty!
-                            </span> 
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fa fa-envelope fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="email" placeholder="abc@example.com" class="form-control"
+                                                formControlName="userEmail" id="userEmail" name="userEmail"
+                                                aria-describedby="emailHelp">
+                                            <span
+                                                *ngIf="userReg.controls['userEmail'].touched && !userReg.controls['userEmail'].valid">
 
-                            <!-- <span *ngIf="userReg.controls['userMobile'].hasError('min')">
-                                Mobile Can't be Less than 10 Digits!
-                            </span> 
+                                                <span *ngIf="userReg.controls['userEmail'].hasError('required')">
+                                                    Email Can't be Empty!
+                                                </span>
 
-                            <span *ngIf="userReg.controls['userMobile'].hasError('max')">
-                                Mobile Can't be More than 10 Digits!
-                            </span>  -->
-
-                            <span *ngIf="userReg.controls['userMobile'].hasError('pattern')">
-                                Mobile No. not in correct format!
-                            </span> 
+                                                <span *ngIf="userReg.controls['userEmail'].hasError('email')">
+                                                    Email is not in correct format
+                                                </span>
 
 
-                        </span>
-                      </div>
-                    </div>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fa fa-lock fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="password" placeholder="Password length must be min 6"
+                                                class="form-control" formControlName="userPassword" id="userPassword"
+                                                name="userPassword">
+                                            <span
+                                                *ngIf="userReg.controls['userPassword'].touched && !userReg.controls['userPassword'].valid">
+
+                                                <span *ngIf="userReg.controls['userPassword'].hasError('required')">
+                                                    Password Can't be Empty!
+                                                </span>
+
+                                                <span *ngIf="userReg.controls['userPassword'].hasError('minlength')">
+                                                    password Can't be Less than 6 Characters!
+                                                </span>
 
 
-                    <div class="d-flex flex-row align-items-center mb-4">
-                        <i class="fa fa-graduation-cap fa-lg me-3 fa-fw"></i>
-                        <div class="form-outline flex-fill mb-0">
-                            <input type="text" placeholder="B.Tech" class="form-control" formControlName="userQualification" id="userQualification" name="userQualification">
-                            <span *ngIf="userReg.controls['userQualification'].touched && !userReg.controls['userQualification'].valid">
-    
-                                <span *ngIf="userReg.controls['userQualification'].hasError('required')">
-                                    Qualification Can't be Empty!
-                                </span> 
-                            </span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fa fa-phone fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" class="form-control"
+                                                placeholder="Enter your 10 digit Mobile Number"
+                                                formControlName="userMobile" id="userMobile" name="userMobile"
+                                                aria-label="Username" aria-describedby="basic-addon1">
+                                            <span
+                                                *ngIf="userReg.controls['userMobile'].touched && !userReg.controls['userMobile'].valid">
+
+                                                <span *ngIf="userReg.controls['userMobile'].hasError('required')">
+                                                    Mobile Can't be Empty!
+                                                </span>
+
+
+                                                <span *ngIf="userReg.controls['userMobile'].hasError('pattern')">
+                                                    Mobile No. not in correct format!
+                                                </span>
+
+
+                                            </span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fa fa-graduation-cap fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" placeholder="B.Tech" class="form-control"
+                                                formControlName="userQualification" id="userQualification"
+                                                name="userQualification">
+                                            <span
+                                                *ngIf="userReg.controls['userQualification'].touched && !userReg.controls['userQualification'].valid">
+
+                                                <span
+                                                    *ngIf="userReg.controls['userQualification'].hasError('required')">
+                                                    Qualification Can't be Empty!
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="d-flex flex-row align-items-center mb-4">
+                                        <i class="fa fa-cogs fa-lg me-3 fa-fw"></i>
+                                        <div class="form-outline flex-fill mb-0">
+                                            <input type="text" placeholder="Marketing, Communication"
+                                                class="form-control" formControlName="userSkills" id="userSkills"
+                                                name="userSkills">
+                                            <span
+                                                *ngIf="userReg.controls['userSkills'].touched && !userReg.controls['userSkills'].valid">
+
+                                                <span *ngIf="userReg.controls['userSkills'].hasError('required')">
+                                                    Skills Can't be Empty!
+                                                </span>
+
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                                        <button type="submit" class="btn btn-primary">Register</button>
+                                        <button type="reset" class="btn btn-warning mx-2">Reset</button>
+                                        <button type="button" class="btn btn-secondary btn-sm ml-2"
+                                            routerLink="/login">Back to Login</button>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+                            <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+
+                                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                                    class="img-fluid" alt="Sample image">
+
+                            </div>
                         </div>
-                      </div>
-
-
-                      <div class="d-flex flex-row align-items-center mb-4">
-                        <i class="fa fa-cogs fa-lg me-3 fa-fw"></i>
-                        <div class="form-outline flex-fill mb-0">
-                            <input type="text" placeholder="Marketing, Communication" class="form-control" formControlName="userSkills" id="userSkills" name="userSkills">
-                            <span *ngIf="userReg.controls['userSkills'].touched && !userReg.controls['userSkills'].valid">
-    
-                                <span *ngIf="userReg.controls['userSkills'].hasError('required')">
-                                    Skills Can't be Empty!
-                                </span> 
-
-                            </span>
-                        </div>
-                      </div>
-  
-                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="submit" class="btn btn-primary btn-lg">Register</button>
-                      <button type="reset" class="btn btn-warning mx-2">Reset</button>
-
                     </div>
-  
-                  </form>
-  
                 </div>
-                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-  
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                    class="img-fluid" alt="Sample image">
-  
-                </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </section>
+</section>

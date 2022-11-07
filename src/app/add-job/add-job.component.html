@@ -1,140 +1,147 @@
 <div class="main pb-5">
-<h1 class="text-center pt-5">Add New Job</h1>
+    <h2 class="text-center pt-5">Add New Job</h2>
 
-<div class="container my-5">
-    <div class="bootstrap-wrapper">
-        <div class="row">
-            <div class="col-md-6 offset-3">
-                <form [formGroup]="jobReg" (ngSubmit)="registerJob()">
+    <div class="container my-5">
+        <div class="bootstrap-wrapper">
+            <div class="row">
+                <div class="col-md-6 offset-3">
+                    <form [formGroup]="jobReg" (ngSubmit)="registerJob()">
 
-                    <div class="form-group">
-                        <label for="companyName" class="form-label">Company Name</label>
-                        <input type="text" class="form-control" formControlName="companyName" id="companyName"
-                            name="companyName">
-                        <span *ngIf="jobReg.controls['companyName'].touched && !jobReg.controls['companyName'].valid">
+                        <div class="form-group">
+                            <label for="companyName" class="form-label">Organisation</label>
+                            <input type="text" class="form-control" formControlName="companyName" id="companyName"
+                                name="companyName">
+                            <span
+                                *ngIf="jobReg.controls['companyName'].touched && !jobReg.controls['companyName'].valid">
 
-                            <span *ngIf="jobReg.controls['jobTitle'].hasError('required')">
-                                Company Name Can't be Empty!
+                                <span *ngIf="jobReg.controls['jobTitle'].hasError('required')">
+                                    Organisation Can't be Empty!
+                                </span>
+
+
+
                             </span>
+                        </div>
 
 
+                        <div class="form-group">
+                            <label for="jobTitle" class="form-label">Job Title</label>
+                            <input type="text" class="form-control" formControlName="jobTitle" id="jobTitle"
+                                name="jobTitle">
+                            <span *ngIf="jobReg.controls['jobTitle'].touched && !jobReg.controls['jobTitle'].valid">
 
-                        </span>
-                    </div>
+                                <span *ngIf="jobReg.controls['jobTitle'].hasError('required')">
+                                    JOb Title Can't be Empty!
+                                </span>
+
+                                <span *ngIf="jobReg.controls['jobTitle'].hasError('minlength')">
+                                    JOb Title Can't be Less than 5 Characters!
+                                </span>
 
 
-                    <div class="form-group">
-                        <label for="jobTitle" class="form-label">Job Title</label>
-                        <input type="text" class="form-control" formControlName="jobTitle" id="jobTitle"
-                            name="jobTitle">
-                        <span *ngIf="jobReg.controls['jobTitle'].touched && !jobReg.controls['jobTitle'].valid">
-
-                            <span *ngIf="jobReg.controls['jobTitle'].hasError('required')">
-                                JOb Title Can't be Empty!
                             </span>
+                        </div>
 
-                            <span *ngIf="jobReg.controls['jobTitle'].hasError('minlength')">
-                                JOb Title Can't be Less than 10 Characters!
+
+                        <div class="form-group">
+                            <label for="jobCategory" class="form-label">Job Category</label>
+
+
+                            <select id="jobCategory" name="category" type="text" class="form-control custom-select"
+                                formControlName="jobCategory" name="jobCategory">
+
+                                <option value="IT">IT</option>
+                                <option value="Developer">Developer</option>
+                                <option value="Support">Support</option>
+                                <option value="BPO">BPO</option>
+                                <option value="Marketing">Marketing</option>
+                                <option value="Teacher">Teacher</option>
+                                <option value="Banking">Banking</option>
+
+
+                            </select>
+                            <span
+                                *ngIf="jobReg.controls['jobCategory'].touched && !jobReg.controls['jobCategory'].valid">
+
+                                <span *ngIf="jobReg.controls['jobCategory'].hasError('required')">
+                                    Job Category Can't be Empty!
+                                </span>
+
                             </span>
+                        </div>
 
 
-                        </span>
-                    </div>
+                        <div class="form-group">
+                            <label for="jobDescription" class="form-label">Job Description</label>
+                            <input type="text" class="form-control" formControlName="jobDescription" id="jobDescription"
+                                name="jobDescription">
+                            <span
+                                *ngIf="jobReg.controls['jobDescription'].touched && !jobReg.controls['jobDescription'].valid">
 
+                                <span *ngIf="jobReg.controls['jobDescription'].hasError('required')">
+                                    Job Description Can't be Empty!
+                                </span>
 
-                    <div class="form-group">
-                        <label for="jobCategory" class="form-label">Job Category</label>
-
-
-                        <select id="jobCategory" name="category" type="text" class="form-control custom-select"
-                            formControlName="jobCategory" name="jobCategory">
-                            
-                            <option value="IT">IT</option>
-                            <option value="Developer">Developer</option>
-                            <option value="Support">Support</option>
-                            <option value="BPO">BPO</option>
-                            <option value="Marketing">Marketing</option>
-                            <option value="Teacher">Teacher</option>
-                            <option value="Banking">Banking</option>
-
-
-                        </select>
-                        <span *ngIf="jobReg.controls['jobCategory'].touched && !jobReg.controls['jobCategory'].valid">
-
-                            <span *ngIf="jobReg.controls['jobCategory'].hasError('required')">
-                                Job Category Can't be Empty!
                             </span>
-
-                        </span>
-                    </div>
+                        </div>
 
 
-                    <div class="form-group">
-                        <label for="jobDescription" class="form-label">Job Description</label>
-                        <input type="text" class="form-control" formControlName="jobDescription" id="jobDescription"
-                            name="jobDescription">
-                        <span
-                            *ngIf="jobReg.controls['jobDescription'].touched && !jobReg.controls['jobDescription'].valid">
-
-                            <span *ngIf="jobReg.controls['jobDescription'].hasError('required')">
-                                Job Description Can't be Empty!
-                            </span>
-
-                        </span>
-                    </div>
-
-
-                    <div class="form-group">
-                        <label for="jobLocation" class="form-label">Job Location</label>
-                        <!-- <input type="text" class="form-control" formControlName="jobLocation" id="jobLocation"
+                        <div class="form-group">
+                            <label for="jobLocation" class="form-label">Job Location</label>
+                            <!-- <input type="text" class="form-control" formControlName="jobLocation" id="jobLocation"
                             name="jobLocation"> -->
 
 
-                        <select name="location" type="text" class="form-control custom-select"
-                            formControlName="jobLocation" id="jobLocation" name="jobLocation">
-                            <option value="Delhi">Delhi</option>
-                            <option value="Pune">Pune</option>
-                            <option value="Banglore">Banglore</option>
-                            <option value="Chennai">Chennai</option>
-                            <option value="Hyderabad">Hyderabad</option>
-                            <option value="NOida">Noida</option>
+                            <select name="location" type="text" class="form-control custom-select"
+                                formControlName="jobLocation" id="jobLocation" name="jobLocation">
+                                <option value="Delhi">Delhi</option>
+                                <option value="Pune">Pune</option>
+                                <option value="Banglore">Banglore</option>
+                                <option value="Chennai">Chennai</option>
+                                <option value="Hyderabad">Hyderabad</option>
+                                <option value="NOida">Noida</option>
 
-                        </select>
+                            </select>
 
-                        <span *ngIf="jobReg.controls['jobLocation'].touched && !jobReg.controls['jobLocation'].valid">
+                            <span
+                                *ngIf="jobReg.controls['jobLocation'].touched && !jobReg.controls['jobLocation'].valid">
 
-                            <span *ngIf="jobReg.controls['jobLocation'].hasError('required')">
-                                Job Location Can't be Empty!
+                                <span *ngIf="jobReg.controls['jobLocation'].hasError('required')">
+                                    Job Location Can't be Empty!
+                                </span>
+
                             </span>
-
-                        </span>
-                    </div>
+                        </div>
 
 
-                    <div class="form-group">
-                        <label for="jobSalary" class="form-label">Job Salary</label>
-                        <input type="text" class="form-control" formControlName="jobSalary" id="jobSalary"
-                            name="jobSalary">
-                        <span *ngIf="jobReg.controls['jobSalary'].touched && !jobReg.controls['jobSalary'].valid">
+                        <div class="form-group">
+                            <label for="jobSalary" class="form-label">Job Salary</label>
+                            <div class="input-group">
 
-                            <span *ngIf="jobReg.controls['jobSalary'].hasError('required')">
-                                Job Salary Can't be Empty!
+                                <input type="text" class="form-control" formControlName="jobSalary" id="jobSalary"
+                                    name="jobSalary">
+                                <div class="input-group-text">LPA</div>
+                            </div>
+                            <span *ngIf="jobReg.controls['jobSalary'].touched && !jobReg.controls['jobSalary'].valid">
+
+                                <span *ngIf="jobReg.controls['jobSalary'].hasError('required')">
+                                    Job Salary Can't be Empty!
+                                </span>
+
+                                <span *ngIf="jobReg.controls['jobSalary'].hasError('pattern')">
+                                    Invalid Input!
+                                </span>
+
                             </span>
+                        </div>
 
-                            <span *ngIf="jobReg.controls['jobSalary'].hasError('pattern')">
-                                Invalid Input!
-                            </span>
-
-                        </span>
-                    </div>
-
-                    <div class="form-group my-4">
-                        <button type="submit" class="btn btn-success">Add Job</button>
-                        <button type="reset" class="btn btn-warning mx-3">Reset Job</button>
-                    </div>
-                </form>
+                        <div class="form-group my-4">
+                            <button type="submit" class="btn btn-success">Add Job</button>
+                            <button type="reset" class="btn btn-warning mx-3">Reset Job</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>

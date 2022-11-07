@@ -20,7 +20,7 @@ import { ViewUserComponent } from './view-user/view-user.component';
 
 const routes: Routes = [
 
-  {path:'', component: HomePageComponent},     // if no path is given redirect to view USer Coomponent
+  {path:'', component: LoginComponent},     // if no path is given redirect to Login Coomponent
   //{path:'add-user', component: AddUserComponent},
   //{path:'job-list', component: ViewJobsComponent},
   //{path:'job-listByLoc', component: ViewJobByLocComponent}, 

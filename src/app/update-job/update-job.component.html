@@ -1,4 +1,4 @@
-<h1 class="text-center my-4">Update JOb Details</h1>
+<h2 class="text-center my-4">Update Job Details</h2>
 
 <div class="container my-5">
     <div class="bootstrap-wrapper">
@@ -14,7 +14,7 @@
                             *ngIf="updateJobForm.controls['companyName'].touched && !updateJobForm.controls['companyName'].valid">
 
                             <span *ngIf="updateJobForm.controls['jobTitle'].hasError('required')">
-                                Company Name Can't be Empty!
+                                Organisation Can't be Empty!
                             </span>
 
 
@@ -35,7 +35,7 @@
                             </span>
 
                             <span *ngIf="updateJobForm.controls['jobTitle'].hasError('minlength')">
-                                JOb Title Can't be Less than 10 Characters!
+                                JOb Title Can't be Less than 5k Characters!
                             </span>
 
 
@@ -89,7 +89,7 @@
                         <label for="jobLocation" class="form-label">Job Location</label>
 
                         <select name="location" type="text" class="form-control custom-select"
-                            formControlName="jobLocation" id="jobLocation" name="jobLocation" >
+                            formControlName="jobLocation" id="jobLocation" name="jobLocation">
                             <option value="Delhi">Delhi</option>
                             <option value="Pune">Pune</option>
                             <option value="Banglore">Banglore</option>
@@ -127,8 +127,8 @@
                         </span>
                     </div>
 
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-outline-success">Update Job</button>
+                    <div class="form-group my-3">
+                        <button type="submit" class="btn btn-outline-success mx-2">Update Job</button>
                         <button type="reset" class="btn btn-outline-warning">Reset Job</button>
                     </div>
                 </form>

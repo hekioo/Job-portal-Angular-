@@ -1,4 +1,18 @@
-<div class="container">
-    <img src="../../assets/images/err.webp">
+<div class="">
+    <div class="mt-5 mx-5">
+        <div *ngIf="this.role == 'adminType'">
+            <button type="button" routerLink="/admin/home-page" class="btn btn-sm btn-secondary">Go Back</button>
+        </div>
+        <div *ngIf="this.role == 'userType'">
+            <button type="button" routerLink="/users/home-page" class="btn btn-sm btn-secondary">Go Back</button>
+        </div>
+    </div>
+   
+    
+    
 </div>
+<img src="../../assets/images/err.webp" alt="error-page"/>
+
+
+
 

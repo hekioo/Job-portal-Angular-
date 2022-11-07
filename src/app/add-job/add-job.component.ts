@@ -21,7 +21,7 @@ export class AddJobComponent implements OnInit {
 
                   jobId: [0],
                   companyName: ['', Validators.compose([Validators.required])], 
-                  jobTitle: ['', Validators.compose([Validators.required, Validators.minLength(10)])],  //Validators.compose is used to to combine all the validations at once
+                  jobTitle: ['', Validators.compose([Validators.required, Validators.minLength(5)])],  //Validators.compose is used to to combine all the validations at once
                   jobCategory: ['', Validators.compose([Validators.required])],
                   jobDescription: ['', Validators.compose([Validators.required,])],
                   jobLocation: ['', Validators.compose([Validators.required])],
@@ -34,15 +34,13 @@ export class AddJobComponent implements OnInit {
 
               
 
-  ngOnInit(): void {
-
-    
+  ngOnInit(): void {  
     
   }
 
 
 
-
+// function to add a new JOb onto platform (ONLY ADMIN)
   registerJob() {
     // console.log(this.jobReg.valid);  // this will set to TRUE only if all the validations are satisfied
      // console.log(this.jobReg.value);  // this is used to get all the values from all the input tags
