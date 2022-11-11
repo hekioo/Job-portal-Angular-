@@ -20,7 +20,7 @@ import { ViewUserComponent } from './view-user/view-user.component';
 
 const routes: Routes = [
 
-  {path:'', component: LoginComponent},     // if no path is given redirect to Login Coomponent
+  {path:'', component: HomePageComponent},     // if no path is given redirect to Login Coomponent
   //{path:'add-user', component: AddUserComponent},
   //{path:'job-list', component: ViewJobsComponent},
   //{path:'job-listByLoc', component: ViewJobByLocComponent}, 
@@ -35,7 +35,7 @@ const routes: Routes = [
     children:
     [
 
-      {path:'', component: HomePageComponent}, 
+      {path:'', component: ViewUserComponent}, 
       {path:'home-page', component:HomePageComponent},
       {path:'add-job', component:AddJobComponent},
       {path:'user-list', component: ViewUserComponent},
@@ -54,7 +54,7 @@ const routes: Routes = [
 {path:'user/:userId', component:UserDashboardComponent, canActivate:[UserAuthGuard],
     children:
     [    
-      {path:'', component: HomePageComponent}, 
+      {path:'', component: ViewJobsComponent}, 
       {path:'job-list', component: ViewJobsComponent},
       {path:'user-applied-job', component: UserAppliedJobComponent},
       {path:'job-listByLoc', component: ViewJobByLocComponent},

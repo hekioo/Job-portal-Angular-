@@ -17,7 +17,7 @@ export class UserDashboardComponent implements OnInit {
 
     this.uid = this._activatedRoute.snapshot.params['userId'];
     sessionStorage.setItem('userId',this.uid.toString());
-    alert(this.uid);
+    //alert(this.uid);
   }
 
 }

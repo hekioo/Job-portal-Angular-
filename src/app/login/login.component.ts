@@ -3,6 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from '../user.service';
 
+
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -42,7 +44,7 @@ export class LoginComponent implements OnInit {
 
 
       if ((email == "admin@gmail.com") && (password == "adminn")) {
-        alert("admin");
+        //alert("admin");
         sessionStorage.setItem('email', "admin");
         sessionStorage.setItem('type', "adminType");
 
@@ -53,7 +55,7 @@ export class LoginComponent implements OnInit {
         this._userService.checkLogin(email, password).subscribe(response => {
 
           if (response != null) {
-            alert("user login");
+            //alert("user login");
             sessionStorage.setItem('email', response.userEmail.toString());
             sessionStorage.setItem('type', "userType");
             this._route.navigate(['user', response.userId]);
@@ -71,7 +73,7 @@ export class LoginComponent implements OnInit {
       }
 
     }
-    console.log(this.loginForm.value);
+    //console.log(this.loginForm.value);
   }
 
 }
